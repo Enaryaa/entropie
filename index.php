@@ -1,14 +1,3 @@
-<?php
-$json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
-
-$jsondata = file_get_contents($json);
-
-$data = json_decode($jsondata,true);
-
-var_dump($data);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,23 +9,31 @@ var_dump($data);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <?php 
+    
+    $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json'; 
+    $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
 
+    $json_data = file_get_contents($json);
+    $json_data2= file_get_contents($json2);
+
+    $data = json_decode($json_data, true);
+    $vote = json_decode($json_data2, true);
+
+    $comp = array_intersect_key($data,$vote);
+    $total = count($comp);
+
+    ?>
 
 </head>
-<?php
-    $titre = "Votes";
-?>
-<body class="bg-primary">
+
+<body class="bg-secondary">
     <!-- Header -->
     <header class="bg-danger">
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
-                <?php
-                    if (true) {
-                        $titre = "TEST";
-                    }
-                    echo $titre;
-                ?>
+                Entropie
             </p>
         </div>
     </header>
@@ -66,36 +63,40 @@ var_dump($data);
             </section>
 
             <!-- Section 2 -->
-            <section class="col-md-3 col-lg-6 bg-primary">
-                <h2>Listes des votants</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
+            <section class="col-md-6 col-lg-12">
+                <h2 class="font-weight-bold">Listes des votants</h2>
+                <table class="table table-dark table-hover table-bordered">
+                    <thead class="text-center bg-danger">
                         <tr>
                             <th>
-                                Nom
+                                Votants
                             </th>
                             <th>
                                 Score
                             </th>
                         </tr>
-                        
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Bob</td>
-                            <td>5.33</td>
-                        </tr>
-                        <tr>
-                            <td>Bob</td>
-                            <td>5.33</td>
-                        </tr>
+                        <?php
+                        foreach ($comp as $key) {
+                            echo "
+                                <tr>
+                                    <th>
+                                        $key
+                                    </th>
+                                    <th>
+                                        $total
+                                    </th>
+                                </tr>
+                            ";
+                        }
+                        
+                        ?>
                     </tbody>
                 </table>
             </section>
 
-            <section class="col-md-3 col-lg-6 bg-primary">
-                <h2>Graphiques</h2>
-                
+            <section class="col-md-3 col-lg-6">
             </section>
 
         </div>

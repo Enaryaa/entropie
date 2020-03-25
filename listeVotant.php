@@ -30,25 +30,40 @@ $vote = json_decode($jsondata2, true);
 //$result = array_merge($data, $vote);
 
 asort($data);
-asort($vote);
+//asort($vote);
 
-foreach($data as $cle=>$valeur) {
+/*foreach($data as $cle=>$valeur) {
     echo($cle.' ');
-}
-echo(count($data));
+}*/
 
 /*foreach($vote as $cle=>$valeur) {
     echo($cle.' ');
 }
 echo(count($vote));*/
 
+//var_dump($vote);
 
+//tableaux contenant les bons logins
 $comp=array_intersect_key($data,$vote);
-foreach ($comp as $key => $value) {
-    print_r($key.' ');
-}
+/*foreach ($comp as $key => $value) {
+    print_r($value.' ');
+}*/
 
-echo(count($comp));
+$result=array_merge($comp,$vote);
+/*foreach ($result as $key => $value) {
+    print_r($key.' ');
+}*/
+$tri = array_intersect_key($result, $comp);
+/*foreach ($tri as $key => $value) {
+    print_r($key.' ');
+}*/
+
+$result2=array_merge($comp,$tri);
+
+//tableaux avec votes des bon logins
+var_dump($result2);
+
+
 
 ?>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
