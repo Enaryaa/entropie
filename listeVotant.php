@@ -29,10 +29,9 @@ $vote = json_decode($jsondata2, true);
 asort($data);
 asort($vote);
 
-foreach($data as $cle=>$valeur) {
+/*foreach($data as $cle=>$valeur) {
     echo($cle.' ');
-}
-echo(count($data));
+}*/
 
 /*foreach($vote as $cle=>$valeur) {
     echo($cle.' ');
@@ -42,11 +41,10 @@ echo(count($vote));*/
 
 $comp=array_intersect_key($data,$vote);
 foreach ($comp as $key => $value) {
-    print_r($key.' ');
+    print_r($value.' ');
 }
 
-echo(count($comp));
-
+var_dump($vote);
 ?>
 
 </html>
