@@ -23,16 +23,17 @@
 
     $comp = array_intersect_key($data,$vote);
     $total = count($comp);
+
     ?>
 
 </head>
 
-<body class="bg-primary">
+<body class="bg-secondary">
     <!-- Header -->
     <header class="bg-danger">
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
-                Votes
+                Entropie
             </p>
         </div>
     </header>
@@ -62,19 +63,18 @@
             </section>
 
             <!-- Section 2 -->
-            <section class="col-md-6 col-lg-12 bg-primary">
+            <section class="col-md-6 col-lg-12">
                 <h2>Listes des votants</h2>
-                <table class="table table-dark table-hover">
-                    <thead>
+                <table class="table table-dark table-hover table-bordered">
+                    <thead class="text-center bg-danger">
                         <tr>
                             <th>
-                                Nom
+                                Votants
                             </th>
                             <th>
                                 Score
                             </th>
                         </tr>
-
                     </thead>
                     <tbody>
                         <?php
@@ -96,7 +96,7 @@
                 </table>
             </section>
 
-            <section class="col-md-3 col-lg-6 bg-primary">
+            <section class="col-md-3 col-lg-6">
             </section>
 
         </div>
