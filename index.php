@@ -1,0 +1,74 @@
+<?php
+$json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
+
+$jsondata = file_get_contents($json);
+
+$data = json_decode($jsondata,true);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json"></script>
+    <script src="http://www.iut-fbleau.fr/projet/maths/?f=logins.json"></script>
+</head>
+
+<body class="bg-primary">
+    <!-- Header -->
+    <header class="bg-danger">
+        <div class="col-lg-12">
+            <p class="text-center text-uppercase font-weight-bold">
+                Votes
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="row ">
+            <!-- Section 1 -->
+            <section>
+                <form>
+                    <div class="form-group">
+                        <label for="matiere" class="font-weight-bold">Matières</label>
+                        <select class="form-control" id="matiere">
+                            <opiton>ACDA</option>
+                            <option>ANG</option>
+                            <option>APL</option>
+                            <option>ART</option>
+                            <option>ASR</option>
+                            <option>EC</option>
+                            <option>EGOD</option>
+                            <option>MAT</option>
+                            <option>SGBD</option>
+                            <option>SPORT</option>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Section 2 -->
+            <section>
+
+            </section>
+
+        </div>
+        <!-- Footer -->
+        <footer class="row">
+            
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
