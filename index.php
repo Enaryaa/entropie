@@ -9,12 +9,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+    <?php 
+    
+    $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json'; 
+    $json_data = file_get_contents($json);
+    $data = json_decode($json_data, true);
+    ?>
 
 </head>
 <?php
     $titre = "Votes";
 ?>
+
 <body class="bg-primary">
     <!-- Header -->
     <header class="bg-danger">
@@ -55,9 +61,9 @@
             </section>
 
             <!-- Section 2 -->
-            <section class="col-md-3 col-lg-6 bg-primary">
+            <section class="col-md-6 col-lg-12 bg-primary">
                 <h2>Listes des votants</h2>
-                <table class="table table-dark table-striped">
+                <table class="table table-dark table-hover">
                     <thead>
                         <tr>
                             <th>
@@ -67,24 +73,29 @@
                                 Score
                             </th>
                         </tr>
-                        
+
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Bob</td>
-                            <td>5.33</td>
-                        </tr>
-                        <tr>
-                            <td>Bob</td>
-                            <td>5.33</td>
-                        </tr>
+                        <?php
+                        foreach ($data as $key => $value) {
+                            echo "
+                                <tr>
+                                    <th>
+                                        $value
+                                    </th>
+                                    <th>
+                                        20
+                                    </th>
+                                </tr>
+                            ";
+                        }
+                        
+                        ?>
                     </tbody>
                 </table>
             </section>
 
             <section class="col-md-3 col-lg-6 bg-primary">
-                <h2>Graphiques</h2>
-                
             </section>
 
         </div>
