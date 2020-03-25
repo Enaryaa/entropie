@@ -1,3 +1,14 @@
+<?php
+$json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
+
+$jsondata = file_get_contents($json);
+
+$data = json_decode($jsondata,true);
+
+var_dump($data);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
