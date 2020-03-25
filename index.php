@@ -22,7 +22,7 @@
     $vote = json_decode($json_data2, true);
 
     $comp = array_intersect_key($data,$vote);
-
+    $total = count($comp);
     ?>
 
 </head>
@@ -85,7 +85,7 @@
                                         $key
                                     </th>
                                     <th>
-                                        20
+                                        $total
                                     </th>
                                 </tr>
                             ";
