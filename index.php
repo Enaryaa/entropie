@@ -22,6 +22,13 @@
     $vote = json_decode($json_data2, true);
 
     $comp = array_intersect_key($data,$vote);
+
+    $result=array_merge($comp,$vote);
+    
+    $tri = array_intersect_key($result, $comp);
+    
+    $result2=array_merge($comp,$tri);
+
     $total = count($comp);
 
     ?>
@@ -45,8 +52,8 @@
             <section class="col-lg-12 bg-secondary">
                 <form>
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Matières</label>
-                        <select class="form-control" id="matiere">
+                        <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
+                        <select class="form-control bg-dark text-light" id="matiere">
                             <opiton>ACDA</option>
                                 <option>ANG</option>
                                 <option>APL</option>
