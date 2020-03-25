@@ -1,14 +1,3 @@
-<?php
-$json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
-
-$jsondata = file_get_contents($json);
-
-$data = json_decode($jsondata,true);
-
-var_dump($data);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,29 +9,30 @@ var_dump($data);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
     <?php 
     
     $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json'; 
+    $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
+
     $json_data = file_get_contents($json);
+    $json_data2= file_get_contents($json2);
+
     $data = json_decode($json_data, true);
+    $vote = json_decode($json_data2, true);
+
+    $comp = array_intersect_key($data,$vote);
+
     ?>
 
 </head>
-<?php
-    $titre = "Votes";
-?>
 
 <body class="bg-primary">
     <!-- Header -->
     <header class="bg-danger">
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
-                <?php
-                    if (true) {
-                        $titre = "TEST";
-                    }
-                    echo $titre;
-                ?>
+                Votes
             </p>
         </div>
     </header>
@@ -88,11 +78,11 @@ var_dump($data);
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($comp as $key) {
                             echo "
                                 <tr>
                                     <th>
-                                        $value
+                                        $key
                                     </th>
                                     <th>
                                         20
