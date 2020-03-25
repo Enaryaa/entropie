@@ -59,8 +59,7 @@ $result2=array_merge($comp,$tri);
 
 //tableaux avec votes des bon logins
 var_dump($result2);
-
-
+var_dump($comp);
 
 ?>
 
