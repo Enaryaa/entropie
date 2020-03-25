@@ -64,7 +64,7 @@
 
             <!-- Section 2 -->
             <section class="col-md-6 col-lg-12">
-                <h2>Listes des votants</h2>
+                <h2 class="font-weight-bold">Listes des votants</h2>
                 <table class="table table-dark table-hover table-bordered">
                     <thead class="text-center bg-danger">
                         <tr>
