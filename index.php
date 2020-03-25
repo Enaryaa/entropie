@@ -12,13 +12,20 @@
 
 
 </head>
-
+<?php
+    $titre = "Votes";
+?>
 <body class="bg-primary">
     <!-- Header -->
     <header class="bg-danger">
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
-                Votes
+                <?php
+                    if (true) {
+                        $titre = "TEST";
+                    }
+                    echo $titre;
+                ?>
             </p>
         </div>
     </header>
