@@ -1,10 +1,4 @@
-<?php
 
-include './probabilite.php';
-include './entropie.php';
-include './listeVotant.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,17 +10,6 @@ include './listeVotant.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    
-    <?php 
-    
-    $data = liste();
-
-    $distributionGlobal = distributionGlobal($data);
-    $distributionLogin = distributionLogin($data);
-
-    $cas_par_matiere = nbreCasPossible($distributionGlobal);
-
-    ?>
 
 </head>
 
@@ -42,8 +25,61 @@ include './listeVotant.php';
 
     <div class="container">
 
-     
+    <div class="row ">
+            <!-- Section 1 -->
+            <section class="col-lg-6 bg-secondary">
+                <form action="./index.php">
+                    <div class="form-group">
+                        <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
+                        <select class="form-control bg-dark text-light" id="matiere">
+                            <opiton>ACDA</option>
+                                <option>ANG</option>
+                                <option>APL</option>
+                                <option>ART</option>
+                                <option>ASR</option>
+                                <option>EC</option>
+                                <option>EGOD</option>
+                                <option>MAT</option>
+                                <option>SGBD</option>
+                                <option>SPORT</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
 
+    
+            <section class="col-lg-6 bg-secondary">
+                <form action="./index.php">
+                    <div class="form-group">
+                        <label for="matiere" class="font-weight-bold">Votants</label>
+                        <select class="form-control bg-dark text-light" id="matiere">
+                           
+                                <?php
+                        foreach ($data as $key => $value) {
+                            
+                            echo "
+                                    <option>
+                                        $key
+                                    </option>
+                            ";
+                        }
+                        
+                        ?>
+                        </select>
+                    </div>
+                    <a class="btn btn-danger" href="./graphique.php" role="button">OK !</a>
+                </form>
+            </section>
+
+    <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
+        <div class="card-header">Score de pertinence</div>
+            <div class="card-body">
+                <h5 class="card-title">67</h5>
+            </div>
+    </div>
+
+    
+  
         </div>
         <!-- Footer -->
         <footer class="row">
