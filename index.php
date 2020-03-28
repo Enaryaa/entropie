@@ -35,7 +35,7 @@ include './listeVotant.php';
     <header class="bg-danger">
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
-                Entropie
+                Accueil
             </p>
         </div>
     </header>
@@ -76,14 +76,14 @@ include './listeVotant.php';
                             echo "
                                     <option>
                                         $key
-                                    <option>
+                                    </option>
                             ";
                         }
                         
                         ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-danger">Submit</button>
+                    <a class="btn btn-danger" href="./graphique.php" role="button">OK !</a>
                 </form>
             </section>
 
@@ -92,7 +92,7 @@ include './listeVotant.php';
             <!-- Section 2 -->
             <section class="col-md-3 col-lg-6">
                 <h2 class="font-weight-bold">Listes des votants avec score de pertinence</h2>
-                <table class="table table-dark table-hover table-striped table-responsive-sm table-bordered">
+                <table class="table table-dark table-hover table-striped table-bordered">
                     <thead class="text-center bg-danger">
                         <tr>
                             <th>
