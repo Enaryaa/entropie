@@ -2,6 +2,7 @@
 
 include './probabilite.php';
 include './entropie.php';
+include './listeVotant.php';
 
 ?>
 <!DOCTYPE html>
@@ -18,27 +19,13 @@ include './entropie.php';
     
     <?php 
     
-    $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json'; 
-    $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
+    $data = liste();
 
-    $json_data = file_get_contents($json);
-    $json_data2= file_get_contents($json2);
+    $distributionGlobal = distributionGlobal($data);
+    $distributionLogin = distributionLogin($data);
 
-    
-
-    $data = json_decode($json_data, true);
-    //var_dump($data['bargoni']);
-    $vote = json_decode($json_data2, true);
-    
-    $comp = array_intersect_key($data,$vote);
-    
-    $result=array_merge($comp,$vote);
-    
-    $tri = array_intersect_key($result, $comp);
-    
-    $result2=array_merge($comp,$tri);
-
-    $total = count($comp);
+    $cas_par_matiere = nbreCasPossible($distributionGlobal);
+    var_dump($cas_par_matiere);
 
     ?>
 
@@ -96,7 +83,7 @@ include './entropie.php';
                     <tbody>
                         <?php
                         foreach ($comp as $key => $value) {
-                            $proba = probabiliteTheorique($vote,$key,"ACDA");
+                            $proba = probabiliteTheorique($vote,$key);
                             echo "
                                 <tr>
                                     <th>
