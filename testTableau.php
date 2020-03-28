@@ -13,14 +13,10 @@ $data = liste();
 $distributionGlobal = distributionGlobal($data);
 $distributionLogin = distributionLogin($data);
 
-$cas_par_matiere = nbreCasPossible($distributionGlobal);
+$cas_par_matiere = nbreCasPossible($distributionLogin);
 
-var_dump($cas_par_matiere);
-echo count($data);
-
-
+//var_dump($cas_par_matiere);
 //var_dump(distributionGlobal($data));
-//var_dump(distributionLogin($data));
-//var_dump(nbreCasPossible(distributionGlobal($data), 'ACDA'));
+var_dump(distributionLogin($data));
 
 ?>
