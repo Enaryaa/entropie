@@ -7,7 +7,23 @@
 // };
 // xmlhttp.open("POST", "http://www.iut-fbleau.fr/projet/maths/?f=pagerank.js", true);
 // xmlhttp.send();
-
+window.addEventListener('load', function () {
+    // Simule une pause de 3 seconde
+    setTimeout(function () {
+        // On fait notre requête AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    var data = JSON.parse(this.responseText);
+                    console.log(data);
+                }
+            }
+        }
+        xhr.open('GET', '/listeVotant.php', true);
+        xhr.send(null);
+    }, 3000)
+});
 
 
 

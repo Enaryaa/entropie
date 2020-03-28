@@ -44,7 +44,69 @@ function liste(){
 
 }
 
+//var_dump($vote);
+
+//tableaux contenant les bons logins
+$comp=array_intersect_key($data,$vote);
+/*foreach ($comp as $key => $value) {
+    print_r($value.' ');
+}*/
+
+$result=array_merge($comp,$vote);
+/*foreach ($result as $key => $value) {
+    print_r($key.' ');
+}*/
+$tri = array_intersect_key($result, $comp);
+/*foreach ($tri as $key => $value) {
+    print_r($key.' ');
+}*/
+
+$result2=array_merge($comp,$tri);
+//tableaux avec votes des bon logins
+// var_dump($result2);
+// var_dump($comp);
+
+include './entropie.php';
+
+$data = liste();
+
+$distributionLogin = distributionLogin($data);
+
+
 ?>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
 </html>
-<script src='votants.js'></script>
+<script>
+    var variableRecuperee = <?php  echo json_encode(liste()); ?>;
+    console.log(variableRecuperee);
+    var key;
+    var temp = [];
+    for(key in variableRecuperee)
+    {
+        temp.push(key) ;
+    }
+    console.log(temp);
+    var trace1 = {
+        type: 'bar',
+        x: temp,
+        y: [1,2,3,2,4,2,1],
+        marker: {
+            color: '#C8A2C8',
+            line: {
+                width: 1
+            }
+        }
+    };
+
+    var data = [ trace1 ];
+
+    var layout = { 
+    title: 'Liste des Votants',
+    font: {size: 18}
+    };
+
+    var config = {responsive: true}
+
+    Plotly.newPlot('myDiv', data, layout, config );
+  
+  </script>
