@@ -45,7 +45,7 @@ include './listeVotant.php';
 
         <div class="row ">
             <!-- Section 1 -->
-            <section class="col-lg-12 bg-secondary">
+            <section class="col-lg-6 bg-secondary">
                 <form action="./index.php">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
@@ -66,8 +66,29 @@ include './listeVotant.php';
                 </form>
             </section>
 
+            <section class="col-lg-6 bg-secondary">
+                <form action="./index.php">
+                    <div class="form-group">
+                        <label for="matiere" class="font-weight-bold">Votants</label>
+                        <select class="form-control bg-dark text-light" id="matiere">
+                            <opiton>ACDA</option>
+                                <option>ANG</option>
+                                <option>APL</option>
+                                <option>ART</option>
+                                <option>ASR</option>
+                                <option>EC</option>
+                                <option>EGOD</option>
+                                <option>MAT</option>
+                                <option>SGBD</option>
+                                <option>SPORT</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+            </section>
+
             <!-- Section 2 -->
-            <section class="col-md-6 col-lg-12">
+            <section class="col-md-3 col-lg-6">
                 <h2 class="font-weight-bold">Listes des votants</h2>
                 <table class="table table-dark table-hover table-bordered">
                     <thead class="text-center bg-danger">
@@ -76,7 +97,7 @@ include './listeVotant.php';
                                 Votants
                             </th>
                             <th>
-                                Proba ACDA
+                                Score
                             </th>
                         </tr>
                     </thead>
