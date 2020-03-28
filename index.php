@@ -1,3 +1,10 @@
+<?php
+
+include './probabilite.php';
+include './entropie.php';
+include './listeVotant.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,24 +19,12 @@
     
     <?php 
     
-    $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json'; 
-    $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
+    $data = liste();
 
-    $json_data = file_get_contents($json);
-    $json_data2= file_get_contents($json2);
+    $distributionGlobal = distributionGlobal($data);
+    $distributionLogin = distributionLogin($data);
 
-    $data = json_decode($json_data, true);
-    $vote = json_decode($json_data2, true);
-
-    $comp = array_intersect_key($data,$vote);
-
-    $result=array_merge($comp,$vote);
-    
-    $tri = array_intersect_key($result, $comp);
-    
-    $result2=array_merge($comp,$tri);
-
-    $total = count($comp);
+    $cas_par_matiere = nbreCasPossible($distributionGlobal);
 
     ?>
 
@@ -49,8 +44,8 @@
 
         <div class="row ">
             <!-- Section 1 -->
-            <section class="col-lg-12 bg-secondary">
-                <form>
+            <section class="col-lg-6 bg-secondary">
+                <form action="./index.php">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere">
@@ -69,10 +64,35 @@
                 </form>
             </section>
 
+            <section class="col-lg-6 bg-secondary">
+                <form action="./index.php">
+                    <div class="form-group">
+                        <label for="matiere" class="font-weight-bold">Votants</label>
+                        <select class="form-control bg-dark text-light" id="matiere">
+                           
+                                <?php
+                        foreach ($data as $key => $value) {
+                            
+                            echo "
+                                    <option>
+                                        $key
+                                    <option>
+                            ";
+                        }
+                        
+                        ?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+            </section>
+
+        
+
             <!-- Section 2 -->
-            <section class="col-md-6 col-lg-12">
-                <h2 class="font-weight-bold">Listes des votants</h2>
-                <table class="table table-dark table-hover table-bordered">
+            <section class="col-md-3 col-lg-6">
+                <h2 class="font-weight-bold">Listes des votants avec score de pertinence</h2>
+                <table class="table table-dark table-hover table-striped table-responsive-sm table-bordered">
                     <thead class="text-center bg-danger">
                         <tr>
                             <th>
@@ -85,14 +105,15 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($comp as $key) {
+                        foreach ($data as $key => $value) {
+                            
                             echo "
                                 <tr>
                                     <th>
                                         $key
                                     </th>
                                     <th>
-                                        $total
+                                        20
                                     </th>
                                 </tr>
                             ";

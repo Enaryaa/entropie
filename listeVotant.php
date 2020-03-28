@@ -18,28 +18,31 @@
 
 
 <?php
-$json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
-$json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
 
-$jsondata = file_get_contents($json);
-$jsondata2= file_get_contents($json2);
+function liste(){
+    
+    $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
+    $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
 
-$data = json_decode($jsondata,true);
-$vote = json_decode($jsondata2, true);
+    $jsondata = file_get_contents($json);
+    $jsondata2= file_get_contents($json2);
 
-//$result = array_merge($data, $vote);
+    $data = json_decode($jsondata,true);
+    $vote = json_decode($jsondata2, true);
 
-asort($data);
-//asort($vote);
+    asort($data);
 
-/*foreach($data as $cle=>$valeur) {
-    echo($cle.' ');
-}*/
+    $comp=array_intersect_key($data,$vote);
 
-/*foreach($vote as $cle=>$valeur) {
-    echo($cle.' ');
+    $result=array_merge($comp,$vote);
+
+    $tri = array_intersect_key($result, $comp);
+
+    $result2=array_merge($comp,$tri);
+
+    return $result2;
+
 }
-echo(count($vote));*/
 
 //var_dump($vote);
 
@@ -68,7 +71,7 @@ $result2=array_merge($comp,$tri);
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
 </html>
 <script>
-    var variableRecuperee = <?php  echo json_encode($result2); ?>;
+    var variableRecuperee = <?php  echo json_encode(liste()); ?>;
     console.log(variableRecuperee);
     var key;
     var temp = [];
