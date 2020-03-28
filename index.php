@@ -102,15 +102,15 @@ include './listeVotant.php';
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($comp as $key => $value) {
-                            $proba = probabiliteTheorique($vote,$key);
+                        foreach ($data as $key => $value) {
+                            
                             echo "
                                 <tr>
                                     <th>
-                                        $value
+                                        $key
                                     </th>
                                     <th>
-                                        $proba
+                                        20
                                     </th>
                                 </tr>
                             ";
