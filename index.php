@@ -25,7 +25,6 @@ include './listeVotant.php';
     $distributionLogin = distributionLogin($data);
 
     $cas_par_matiere = nbreCasPossible($distributionGlobal);
-    var_dump($cas_par_matiere);
 
     ?>
 
