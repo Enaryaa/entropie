@@ -20,7 +20,7 @@ echo count($data);
 
 
 //var_dump(distributionGlobal($data));
-//var_dump(distributionLogin($data));
+echo $distributionLogin['bargoni']['ACDA']['mana'];
 //var_dump(nbreCasPossible(distributionGlobal($data), 'ACDA'));
 
 ?>

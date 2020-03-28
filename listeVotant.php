@@ -66,6 +66,12 @@ $result2=array_merge($comp,$tri);
 // var_dump($result2);
 // var_dump($comp);
 
+include './entropie.php';
+
+$data = liste();
+
+$distributionLogin = distributionLogin($data);
+
 
 ?>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
