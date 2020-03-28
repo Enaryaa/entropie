@@ -25,7 +25,6 @@ include './listeVotant.php';
     $distributionLogin = distributionLogin($data);
 
     $cas_par_matiere = nbreCasPossible($distributionGlobal);
-    var_dump($cas_par_matiere);
 
     ?>
 
@@ -103,15 +102,15 @@ include './listeVotant.php';
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($comp as $key => $value) {
-                            $proba = probabiliteTheorique($vote,$key);
+                        foreach ($data as $key => $value) {
+                            
                             echo "
                                 <tr>
                                     <th>
-                                        $value
+                                        $key
                                     </th>
                                     <th>
-                                        $proba
+                                        20
                                     </th>
                                 </tr>
                             ";
