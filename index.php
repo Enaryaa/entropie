@@ -1,3 +1,9 @@
+<?php
+
+include './probabilite.php';
+include './entropie.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,11 +24,14 @@
     $json_data = file_get_contents($json);
     $json_data2= file_get_contents($json2);
 
+    
+
     $data = json_decode($json_data, true);
+    //var_dump($data['bargoni']);
     $vote = json_decode($json_data2, true);
-
+    
     $comp = array_intersect_key($data,$vote);
-
+    
     $result=array_merge($comp,$vote);
     
     $tri = array_intersect_key($result, $comp);
@@ -50,7 +59,7 @@
         <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-12 bg-secondary">
-                <form>
+                <form action="./index.php">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere">
@@ -66,6 +75,7 @@
                                 <option>SPORT</option>
                         </select>
                     </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
                 </form>
             </section>
 
@@ -79,20 +89,21 @@
                                 Votants
                             </th>
                             <th>
-                                Score
+                                Proba ACDA
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($comp as $key) {
+                        foreach ($comp as $key => $value) {
+                            $proba = probabiliteTheorique($vote,$key,"ACDA");
                             echo "
                                 <tr>
                                     <th>
-                                        $key
+                                        $value
                                     </th>
                                     <th>
-                                        $total
+                                        $proba
                                     </th>
                                 </tr>
                             ";

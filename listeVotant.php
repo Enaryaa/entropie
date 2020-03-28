@@ -62,7 +62,7 @@ $result2=array_merge($comp,$tri);
 
 //tableaux avec votes des bon logins
 var_dump($result2);
-var_dump($comp);
+//var_dump($comp);
 
 ?>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
