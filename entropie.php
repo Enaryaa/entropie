@@ -1,6 +1,7 @@
 <?php
 
 
+
 //  data contenant les bons logins avec leurs votes
 //  et c'est tout !
 
@@ -24,20 +25,17 @@ function distributionLogin($data){
     return $distribution;
 }
 
-function distributionGlobal($data){
+function distributionGlobal($data, $cas_par_matiere){
     $distribution = array();
-    //  pacours array 1
-    foreach($data as $login => $matiere){
-        //  parcours array 2
-        //  $key est la matière et $value est les votes de $login sur la $matiere
+    foreach($data as $matiere){
         foreach ($matiere as $key => $value) {
             if(array_key_exists($key,$distribution)){
-                foreach($value as $id => $vote){
+                foreach($value as $vote){
                     if(array_key_exists($vote, $distribution[$key])){
                         $distribution[$key][$vote]++;
                     }
                     else{
-                        $distribution[$key][$vote] = 1;
+                        $distribution[$key][$vote] = 1 ;
                     }
                     
                 }
@@ -45,12 +43,18 @@ function distributionGlobal($data){
             else{
                 $distribution[$key] = array();
 
-                foreach($value as $id => $vote){
+                foreach($value as $vote){
 
                     $distribution[$key][$vote] = 1;
                 
                 }
             }
+        }
+    }
+
+    foreach($distribution as $matiere => $login){
+        foreach($login as $vote => $proba){
+            $distribution[$matiere][$vote] = ($distribution[$matiere][$vote] / $cas_par_matiere[$matiere])*100;
         }
     }
 

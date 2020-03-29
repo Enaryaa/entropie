@@ -10,13 +10,13 @@ $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
 
 $data = liste();
 
-$distributionGlobal = distributionGlobal($data);
+
 $distributionLogin = distributionLogin($data);
 
 $cas_par_matiere = nbreCasPossible($distributionLogin);
-
+$distributionGlobal = distributionGlobal($data,$cas_par_matiere);
 //var_dump($cas_par_matiere);
-//var_dump(distributionGlobal($data));
-var_dump(distributionLogin($data));
-
+var_dump($distributionGlobal);
+//var_dump($distributionLogin);
+//echo $distributionLogin['bargoni']['ACDA']['mana'];
 ?>

@@ -6,7 +6,12 @@ function nbreCasPossible($data){
 
     foreach($data as $login => $matiere){
         foreach($matiere as $key => $value){
-            echo count($value);
+            if(array_key_exists($key,$tab)){
+                $tab[$key] = $tab[$key] + count($value);
+            }
+            else{
+                $tab[$key] = count($value);
+            }
         }
     }
     return $tab;
