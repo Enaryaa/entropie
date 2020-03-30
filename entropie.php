@@ -54,7 +54,7 @@ function distributionGlobal($data, $cas_par_matiere){
 
     foreach($distribution as $matiere => $login){
         foreach($login as $vote => $proba){
-            $distribution[$matiere][$vote] = ($distribution[$matiere][$vote] / $cas_par_matiere[$matiere])*100;
+            $distribution[$matiere][$vote] = ($distribution[$matiere][$vote] / $cas_par_matiere[$matiere]);
         }
     }
 
@@ -66,5 +66,32 @@ function distributionGlobal($data, $cas_par_matiere){
 //  Q étant le distribution du votant (normalement uniforme)
 //  P étant la distribution global
 //  D(Q || P) = SOMME(Q(i) * ln(Q(i) / P(i)))
+//  log(float $arg, float $base);
+
+function entropie($distributionLogin, $distributionGlobal){
+
+    $score = array();
+    $res = 0;
+
+    foreach($distributionLogin as $nom_votant => $matieres){
+
+        $score[$nom_votant] = array();
+        foreach($matieres as $nom_matiere => $votes){
+            $score[$nom_votant][$nom_matiere] = 0;
+            foreach($votes as $nom_vote => $proba){
+                $q = $distributionLogin[$nom_votant][$nom_matiere][$nom_vote];
+                $p = $distributionGlobal[$nom_matiere][$nom_vote];
+
+                $res += $q * log(($q/$p), 2);
+            }
+
+            $score[$nom_votant][$nom_matiere] = $res;
+            $res = 0;
+        }
+
+    }
+
+    return $score;
+}
 
 ?>
