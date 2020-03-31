@@ -19,6 +19,7 @@
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
                 Affichage résultat
+                <?php echo $_POST["login"]; ?>
             </p>
         </div>
     </header>
@@ -28,7 +29,7 @@
     <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
+                <form action="./graphique.php" method="post">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere">
@@ -49,10 +50,9 @@
 
     
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Votants</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <select class="form-control bg-dark text-light" id="login">
                            
                                 <?php
                         foreach ($data as $key => $value) {

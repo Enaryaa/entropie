@@ -40,12 +40,13 @@ include './listeVotant.php';
         </div>
     </header>
 
+    
     <div class="container">
 
         <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
+                <form action="./graphique.php" method="post">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere">
@@ -61,14 +62,14 @@ include './listeVotant.php';
                                 <option>SPORT</option>
                         </select>
                     </div>
-                </form>
+ 
             </section>
 
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
+               
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Votants</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <label for="login" class="font-weight-bold">Votants</label>
+                        <select class="form-control bg-dark text-light" id="login">
                            
                                 <?php
                         foreach ($data as $key => $value) {
@@ -83,7 +84,7 @@ include './listeVotant.php';
                         ?>
                         </select>
                     </div>
-                    <a class="btn btn-danger" href="./graphique.php" role="button">OK !</a>
+                    <a class="btn btn-danger" type="submit">OK !</a>
                 </form>
             </section>
 
