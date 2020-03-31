@@ -42,9 +42,18 @@ function liste(){
     
     return $result2;
 
+}
+
+function login_list(){
+
+    $file = './votant.json';
+
+    $jsondata = file_get_contents($file);
 
 
-    
+    $list = json_decode($jsondata,true);
+
+    return $list;
 
 }
 

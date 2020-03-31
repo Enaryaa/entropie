@@ -19,7 +19,7 @@ include './listeVotant.php';
     <?php 
     
     $data = liste();
-
+    $login = login_list();
 
     ?>
 
@@ -65,11 +65,11 @@ include './listeVotant.php';
                         <select class="form-control bg-dark text-light" id="login" name="login">
                            
                                 <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                     <option>
-                                        $key
+                                        $value
                                     </option>
                             ";
                         }
