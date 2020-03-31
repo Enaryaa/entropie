@@ -33,6 +33,7 @@ function liste(){
     asort($data);
 
     $comp=array_intersect_key($data,$vote);
+    echo json_encode($comp);
 
     $result=array_merge($comp,$vote);
 

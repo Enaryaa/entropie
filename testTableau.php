@@ -18,7 +18,7 @@ $distributionGlobal = distributionGlobal($data,$cas_par_matiere);
 
 $entropie = entropie($distributionLogin,$distributionGlobal);
 
-echo json_encode($entropie);
+//echo json_encode($entropie);
 //var_dump($cas_par_matiere);
 //echo $cas_par_matiere[1];
 //var_dump($distributionGlobal);
