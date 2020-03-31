@@ -64,13 +64,11 @@ include './listeVotant.php';
                         </select>
                     </div>
  
-            </section>
-
-            <section class="col-lg-6 bg-secondary">
+           
                
                     <div class="form-group">
                         <label for="login" class="font-weight-bold">Votants</label>
-                        <select class="form-control bg-dark text-light" id="login">
+                        <select size="20" class="form-control bg-dark text-light" id="login">
                            
                                 <?php
                         foreach ($data as $key => $value) {
