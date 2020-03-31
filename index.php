@@ -47,10 +47,10 @@ include './listeVotant.php';
         <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./graphique.php/" method="post">
+                <form action="./graphique.php" method="post">
                     <div class="form-group">
-                        <label for="matiere" name="matiere" class="font-weight-bold">Choix de la Matière</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
+                        <select class="form-control bg-dark text-light" id="matiere" name="matiere">
                             <opiton>ACDA</option>
                                 <option>ANG</option>
                                 <option>APL</option>
@@ -67,8 +67,8 @@ include './listeVotant.php';
            
                
                     <div class="form-group">
-                        <label for="login"  name="login" class="font-weight-bold">Votants</label>
-                        <select size="25" class="form-control bg-dark text-light" id="login">
+                        <label for="login"  class="font-weight-bold">Votants</label>
+                        <select size="25" class="form-control bg-dark text-light" id="login" name="login">
                            
                                 <?php
                         foreach ($data as $key => $value) {
