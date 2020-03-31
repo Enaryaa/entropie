@@ -71,21 +71,25 @@ include './entropie.php';
 $data = liste();
 
 $distributionLogin = distributionLogin($data);
-
-
 ?>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
 </html>
 <script>
-    var variableRecuperee = <?php  echo json_encode(liste()); ?>;
-    console.log(variableRecuperee);
+    var variableRecuperee = <?php  echo json_encode(liste()) ;?>;
+    var vote = <?php  echo json_encode($distributionLogin) ;?>;
+    // console.log(vote);
     var key;
     var temp = [];
+    var temp2 = [];
     for(key in variableRecuperee)
     {
         temp.push(key) ;
     }
-    console.log(temp);
+    for(key in vote)
+    {
+        console.log(key);
+        console.log(vote[key]);
+    }
     var trace1 = {
         type: 'bar',
         x: temp,
