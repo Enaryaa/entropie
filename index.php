@@ -21,6 +21,7 @@ include './listeVotant.php';
     
     $data = liste();
     $login = login_list();
+    $entropie = entropie_list();
     
     $distributionLogin = distributionLogin($data);
 
@@ -68,7 +69,7 @@ include './listeVotant.php';
                
                     <div class="form-group">
                         <label for="login"  class="font-weight-bold">Votants</label>
-                        <select size="25" class="form-control bg-dark text-light" id="login" name="login">
+                        <select size="25" class="form-control  bg-dark text-light" id="login" name="login" required>
                            
                                 <?php
                         foreach ($login as $key => $value) {

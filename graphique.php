@@ -20,6 +20,7 @@ include './listeVotant.php';
     
     $data = liste();
     $login = login_list();
+    $entropie = entropie_list();
 
     ?>
 
