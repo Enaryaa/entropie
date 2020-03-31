@@ -19,7 +19,6 @@
         <div class="col-lg-12">
             <p class="text-center text-uppercase font-weight-bold">
                 Affichage résultat
-                <?php echo $_POST["login"]; ?>
             </p>
         </div>
     </header>
@@ -31,7 +30,7 @@
             <section class="col-lg-6 bg-secondary">
                 <form action="./graphique.php" method="post">
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
+                        <label for="matiere" name="matiere" class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere">
                             <opiton>ACDA</option>
                                 <option>ANG</option>
@@ -45,13 +44,12 @@
                                 <option>SPORT</option>
                         </select>
                     </div>
-                </form>
             </section>
 
     
             <section class="col-lg-6 bg-secondary">
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Votants</label>
+                        <label for="login" name="login" class="font-weight-bold">Votants</label>
                         <select class="form-control bg-dark text-light" id="login">
                            
                                 <?php
@@ -67,12 +65,12 @@
                         ?>
                         </select>
                     </div>
-                    <a class="btn btn-danger" href="./graphique.php" role="button">OK !</a>
+                    <button class="btn btn-danger" type="submit">OK !</button>
                 </form>
             </section>
 
     <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
-        <div class="card-header">Score de pertinence</div>
+        <div class="card-header">Score de pertinence de <?php echo $_POST["login"]; ?></div>
             <div class="card-body">
                 <h5 class="card-title">67</h5>
             </div>
