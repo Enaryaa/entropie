@@ -4,10 +4,14 @@
 function nbreCasPossible($data){
     $tab = array();
 
-    foreach($data as $matiere => $login){
-        $tab[$matiere] = 0;
-        foreach($login as $nom => $nbre){
-            $tab[$matiere] = $tab[$matiere] + $nbre;
+    foreach($data as $login => $matiere){
+        foreach($matiere as $key => $value){
+            if(array_key_exists($key,$tab)){
+                $tab[$key] = $tab[$key] + count($value);
+            }
+            else{
+                $tab[$key] = count($value);
+            }
         }
     }
     return $tab;
