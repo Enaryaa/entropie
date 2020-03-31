@@ -39,8 +39,12 @@ function liste(){
     $tri = array_intersect_key($result, $comp);
 
     $result2=array_merge($comp,$tri);
-
+    
     return $result2;
+
+
+
+    
 
 }
 

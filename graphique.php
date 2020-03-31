@@ -40,7 +40,7 @@ include './listeVotant.php';
     <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./graphique.php" method="post">
+                <form action=" " method="post">
                     <div class="form-group">
                         <label for="matiere"  class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere" name="matiere">
