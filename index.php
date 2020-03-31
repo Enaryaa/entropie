@@ -21,10 +21,11 @@ include './listeVotant.php';
     
     $data = liste();
 
-    $distributionGlobal = distributionGlobal($data);
+    
     $distributionLogin = distributionLogin($data);
 
-    $cas_par_matiere = nbreCasPossible($distributionGlobal);
+    $cas_par_matiere = nbreCasPossible($data);
+    $distributionGlobal = distributionGlobal($data, $cas_par_matiere);
 
     ?>
 
