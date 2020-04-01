@@ -22,6 +22,7 @@ function distributionLogin($data){
     }
     //  retourne la distribution uniforme de chaque votant $login
     return $distribution;
+    
 }
 
 //  A revoir car pas sûr du résultat
@@ -60,6 +61,7 @@ function distributionGlobal($data, $cas_par_matiere){
 
     //  retourne la distribution global dans chaque matière
     return $distribution;
+    
 }
 
 //  fonction qui calcule l'entropie de chaque personne 
@@ -81,7 +83,6 @@ function entropie($distributionLogin, $distributionGlobal){
             foreach($votes as $nom_vote => $proba){
                 $q = $distributionLogin[$nom_votant][$nom_matiere][$nom_vote];
                 $p = $distributionGlobal[$nom_matiere][$nom_vote];
-
                 $res += $q * log(($q/$p), 2);
             }
 
@@ -92,6 +93,7 @@ function entropie($distributionLogin, $distributionGlobal){
     }
 
     return $score;
+ 
 }
 
 ?>

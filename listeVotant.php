@@ -40,8 +40,21 @@ function liste(){
     $tri = array_intersect_key($result, $comp);
 
     $result2=array_merge($comp,$tri);
-
+    
     return $result2;
+
+}
+
+function login_list(){
+
+    $file = './votant.json';
+
+    $jsondata = file_get_contents($file);
+
+
+    $list = json_decode($jsondata,true);
+
+    return $list;
 
 }
 

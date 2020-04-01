@@ -1,15 +1,27 @@
+<?php
+include './listeVotant.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Entropie</title>
+    <title>Resultat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    <?php 
+    
+    $data = liste();
+    $login = login_list();
+
+    ?>
 
 </head>
 
@@ -28,10 +40,10 @@
     <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
+                <form action=" " method="post">
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <label for="matiere"  class="font-weight-bold">Choix de la Matière</label>
+                        <select class="form-control bg-dark text-light" id="matiere" name="matiere">
                             <opiton>ACDA</option>
                                 <option>ANG</option>
                                 <option>APL</option>
@@ -44,22 +56,20 @@
                                 <option>SPORT</option>
                         </select>
                     </div>
-                </form>
             </section>
 
     
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Votants</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <label for="login"  class="font-weight-bold">Votants</label>
+                        <select class="form-control bg-dark text-light" id="login" name="login">
                            
                                 <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                     <option>
-                                        $key
+                                        $value
                                     </option>
                             ";
                         }
@@ -67,12 +77,12 @@
                         ?>
                         </select>
                     </div>
-                    <a class="btn btn-danger" href="./graphique.php" role="button">OK !</a>
+                    <button class="btn btn-danger" type="submit">OK !</button>
                 </form>
             </section>
 
     <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
-        <div class="card-header">Score de pertinence</div>
+        <div class="card-header">Score de pertinence de <?php echo $_POST["login"]; ?></div>
             <div class="card-body">
                 <h5 class="card-title">67</h5>
             </div>

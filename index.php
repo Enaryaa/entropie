@@ -20,7 +20,7 @@ include './listeVotant.php';
     <?php 
     
     $data = liste();
-
+    $login = login_list();
     
     $distributionLogin = distributionLogin($data);
 
@@ -41,15 +41,16 @@ include './listeVotant.php';
         </div>
     </header>
 
+    
     <div class="container">
 
         <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
+                <form action="./graphique.php" method="post">
                     <div class="form-group">
                         <label for="matiere" class="font-weight-bold">Choix de la Matière</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <select class="form-control bg-dark text-light" id="matiere" name="matiere">
                             <opiton>ACDA</option>
                                 <option>ANG</option>
                                 <option>APL</option>
@@ -62,21 +63,19 @@ include './listeVotant.php';
                                 <option>SPORT</option>
                         </select>
                     </div>
-                </form>
-            </section>
-
-            <section class="col-lg-6 bg-secondary">
-                <form action="./index.php">
+ 
+           
+               
                     <div class="form-group">
-                        <label for="matiere" class="font-weight-bold">Votants</label>
-                        <select class="form-control bg-dark text-light" id="matiere">
+                        <label for="login"  class="font-weight-bold">Votants</label>
+                        <select size="25" class="form-control bg-dark text-light" id="login" name="login">
                            
                                 <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                     <option>
-                                        $key
+                                        $value
                                     </option>
                             ";
                         }
@@ -84,7 +83,7 @@ include './listeVotant.php';
                         ?>
                         </select>
                     </div>
-                    <a class="btn btn-danger" href="./graphique.php" role="button">OK !</a>
+                    <button class="btn btn-danger" type="submit">OK !</button>
                 </form>
             </section>
 
@@ -106,12 +105,12 @@ include './listeVotant.php';
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                 <tr>
                                     <th>
-                                        $key
+                                        $value
                                     </th>
                                     <th>
                                         20
