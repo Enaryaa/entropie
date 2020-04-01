@@ -22,6 +22,8 @@ include './listeVotant.php';
     $login = login_list();
     $entropie = entropie_list();
 
+     $stats = $login[$_POST['login']];
+
     ?>
 
 </head>
@@ -70,7 +72,7 @@ include './listeVotant.php';
                             
                             echo "
                                     <option>
-                                        $value
+                                        $key
                                     </option>
                             ";
                         }
@@ -83,7 +85,7 @@ include './listeVotant.php';
             </section>
 
     <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
-        <div class="card-header">Score de pertinence de <?php echo $_POST["login"]; ?></div>
+        <div class="card-header">Score de pertinence de <?php echo $stats; ?><br> Matière : <?php echo $_POST["matiere"]; ?></div>
             <div class="card-body">
                 <h5 class="card-title"> <?php 
                /* 
@@ -99,6 +101,8 @@ include './listeVotant.php';
                         }
                     }
                 }*/
+
+            
                  
             $stats = $entropie[$_POST['login']];
             echo  $mat = $stats[$_POST['matiere']];

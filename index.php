@@ -28,6 +28,8 @@ include './listeVotant.php';
     $cas_par_matiere = nbreCasPossible($data);
     $distributionGlobal = distributionGlobal($data, $cas_par_matiere);
 
+    
+
     ?>
 
 </head>
@@ -71,7 +73,7 @@ include './listeVotant.php';
                         <select size="25" class="form-control  bg-dark text-light" id="login" name="login" required>
                            
                                 <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                     <option>
@@ -105,7 +107,7 @@ include './listeVotant.php';
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                 <tr>
