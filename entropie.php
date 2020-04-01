@@ -20,6 +20,16 @@ function distributionLogin($data){
             }
         }
     }
+
+    $fichier = fopen('./json/personnelle.json', 'r+');
+
+    if(!fgets($fichier)){
+        fseek($fichier, 0);
+        fputs($fichier, json_encode($distribution));
+    }
+
+    fclose($fichier);
+
     //  retourne la distribution uniforme de chaque votant $login
     return $distribution;
     
@@ -59,6 +69,15 @@ function distributionGlobal($data, $cas_par_matiere){
         }
     }
 
+    $fichier = fopen('./json/global.json', 'r+');
+
+    if(!fgets($fichier)){
+        fseek($fichier, 0);
+        fputs($fichier, json_encode($distribution));
+    }
+
+    fclose($fichier);
+
     //  retourne la distribution global dans chaque matière
     return $distribution;
     
@@ -81,6 +100,8 @@ function entropie($distributionLogin, $distributionGlobal){
         foreach($matieres as $nom_matiere => $votes){
             $score[$nom_votant][$nom_matiere] = 0;
             foreach($votes as $nom_vote => $proba){
+                $logBinN = log(count($votes),2);
+                echo $nom_votant," -> ",$nom_matiere," -> ",$logBinN,"<br>";
                 $q = $distributionLogin[$nom_votant][$nom_matiere][$nom_vote];
                 $p = $distributionGlobal[$nom_matiere][$nom_vote];
                 $res += $q * log(($q/$p), 2);

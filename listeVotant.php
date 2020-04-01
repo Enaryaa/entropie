@@ -33,6 +33,7 @@ function liste(){
     asort($data);
 
     $comp=array_intersect_key($data,$vote);
+    
 
     $result=array_merge($comp,$vote);
 
@@ -46,7 +47,7 @@ function liste(){
 
 function login_list(){
 
-    $file = './votant.json';
+    $file = './json/votant.json';
 
     $jsondata = file_get_contents($file);
 
@@ -60,7 +61,7 @@ function login_list(){
 
 function entropie_list(){
 
-    $file = './entropie.json';
+    $file = './json/entropie.json';
 
     $jsondata = file_get_contents($file);
 
