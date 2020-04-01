@@ -52,6 +52,7 @@ function login_list(){
 
 
     $list = json_decode($jsondata,true);
+    asort($list);
 
     return $list;
 

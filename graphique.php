@@ -22,7 +22,7 @@ include './listeVotant.php';
     $login = login_list();
     $entropie = entropie_list();
 
-     $stats = $login[$_POST['login']];
+    $stats = $login[$_POST['login']];
 
     ?>
 
@@ -101,8 +101,6 @@ include './listeVotant.php';
                         }
                     }
                 }*/
-
-            
                  
             $stats = $entropie[$_POST['login']];
             echo  $mat = $stats[$_POST['matiere']];

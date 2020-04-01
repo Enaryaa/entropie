@@ -43,7 +43,7 @@ include './listeVotant.php';
             </p>
         </div>
     </header>
-
+    
     
     <div class="container">
 
@@ -93,15 +93,15 @@ include './listeVotant.php';
 
             <!-- Section 2 -->
             <section class="col-md-3 col-lg-6">
-                <h2 class="font-weight-bold">Listes des votants avec score de pertinence</h2>
+                <h2 class="font-weight-bold">Listes des votants avec leur login</h2>
                 <table class="table table-dark table-hover table-striped table-bordered">
                     <thead class="text-center bg-danger">
                         <tr>
                             <th>
-                                Votants
+                                Login
                             </th>
                             <th>
-                                Score
+                                Nom
                             </th>
                         </tr>
                     </thead>
@@ -115,7 +115,7 @@ include './listeVotant.php';
                                         $key
                                     </th>
                                     <th>
-                                        20
+                                        $value
                                     </th>
                                 </tr>
                             ";
