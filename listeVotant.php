@@ -79,45 +79,5 @@ function entropie_list(){
 
 
 ?>
-	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+	
 </html>
-<script>
-    var variableRecuperee = <?php  echo json_encode(liste()) ;?>;
-    var vote = <?php  echo json_encode($distributionLogin) ;?>;
-    // console.log(vote);
-    var key;
-    var temp = [];
-    var temp2 = [];
-    for(key in variableRecuperee)
-    {
-        temp.push(key) ;
-    }
-    for(key in vote)
-    {
-        console.log(key);
-        console.log(vote[key]);
-    }
-    var trace1 = {
-        type: 'bar',
-        x: temp,
-        y: [1,2,3,2,4,2,1],
-        marker: {
-            color: '#C8A2C8',
-            line: {
-                width: 1
-            }
-        }
-    };
-
-    var data = [ trace1 ];
-
-    var layout = { 
-    title: 'Liste des Votants',
-    font: {size: 18}
-    };
-
-    var config = {responsive: true}
-
-    Plotly.newPlot('myDiv', data, layout, config );
-  
-  </script>

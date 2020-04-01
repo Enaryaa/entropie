@@ -1,6 +1,6 @@
 <?php
 include './listeVotant.php';
-
+include './entropie.php'
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ include './listeVotant.php';
     $data = liste();
     $login = login_list();
     $entropie = entropie_list();
-
+    $distribution = distributionLogin($data);
     $stats = $login[$_POST['login']];
 
     ?>
@@ -112,6 +112,7 @@ include './listeVotant.php';
     
   
         </div>
+        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
         <!-- Footer -->
         <footer class="row">
 
@@ -120,4 +121,43 @@ include './listeVotant.php';
     </div>
 </body>
 
+
+<script>
+    var login = "<?php echo $_POST['login'] ?>";
+    var matiere = "<?php echo $_POST["matiere"]; ?>";
+    var variableRecuperee = <?php  echo json_encode(liste()) ;?>;
+    var vote = <?php  echo json_encode( $distribution) ;?>;
+    var key;
+    var temp = [];
+    var temp2 = [];
+    for(key in vote[login][matiere])
+    {
+        temp.push(key) ;
+        temp2.push(vote[login][matiere][key]);
+    }
+   
+    var trace1 = {
+        type: 'bar',
+        x: temp,
+        y: temp2,
+        marker: {
+            color: '#C8A2C8',
+            line: {
+                width: 1
+            }
+        }
+    };
+
+    var data = [ trace1 ];
+
+    var layout = { 
+    title: 'Liste des Votants',
+    font: {size: 18}
+    };
+
+    var config = {responsive: true}
+
+    Plotly.newPlot('myDiv', data, layout, config );
+  
+  </script>
 </html>
