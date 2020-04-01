@@ -53,11 +53,24 @@ function login_list(){
 
 
     $list = json_decode($jsondata,true);
+    asort($list);
 
     return $list;
 
 }
 
+function entropie_list(){
+
+    $file = './entropie.json';
+
+    $jsondata = file_get_contents($file);
+
+
+    $list = json_decode($jsondata,true);
+
+    return $list;
+
+}
 
 // include './testTableau.php';
 
