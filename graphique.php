@@ -19,7 +19,10 @@ include './listeVotant.php';
     <?php 
     
     $data = liste();
+    $login = login_list();
+    $entropie = entropie_list();
 
+    $stats = $login[$_POST['login']];
 
     ?>
 
@@ -40,7 +43,7 @@ include './listeVotant.php';
     <div class="row ">
             <!-- Section 1 -->
             <section class="col-lg-6 bg-secondary">
-                <form action="./graphique.php" method="post">
+                <form action=" " method="post">
                     <div class="form-group">
                         <label for="matiere"  class="font-weight-bold">Choix de la Matière</label>
                         <select class="form-control bg-dark text-light" id="matiere" name="matiere">
@@ -65,7 +68,7 @@ include './listeVotant.php';
                         <select class="form-control bg-dark text-light" id="login" name="login">
                            
                                 <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                     <option>
@@ -82,10 +85,28 @@ include './listeVotant.php';
             </section>
 
     <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
-        <div class="card-header">Score de pertinence de <?php echo $_POST["login"]; ?></div>
+        <div class="card-header">Score de pertinence de <?php echo $stats; ?><br> Matière : <?php echo $_POST["matiere"]; ?></div>
             <div class="card-body">
-                <h5 class="card-title">67</h5>
-            </div>
+                <h5 class="card-title"> <?php 
+               /* 
+                foreach ($entropie as $key => $value) {
+                    if ($key == $_POST['login']) {               
+                        foreach ($value as $nb) {
+                           
+                            echo $nb; 
+                            if ($value == $_POST['matiere']) {
+                                echo 'coucou3';
+                                echo $nb;
+                            }
+                        }
+                    }
+                }*/
+                 
+            $stats = $entropie[$_POST['login']];
+            echo  $mat = $stats[$_POST['matiere']];
+                
+            ?></h5>
+        </div>
     </div>
 
     

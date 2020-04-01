@@ -20,12 +20,15 @@ include './listeVotant.php';
     <?php 
     
     $data = liste();
-
+    $login = login_list();
+    $entropie = entropie_list();
     
     $distributionLogin = distributionLogin($data);
 
     $cas_par_matiere = nbreCasPossible($data);
     $distributionGlobal = distributionGlobal($data, $cas_par_matiere);
+
+    
 
     ?>
 
@@ -40,7 +43,7 @@ include './listeVotant.php';
             </p>
         </div>
     </header>
-
+    
     
     <div class="container">
 
@@ -64,14 +67,13 @@ include './listeVotant.php';
                         </select>
                     </div>
  
-           
-               
+        
                     <div class="form-group">
                         <label for="login"  class="font-weight-bold">Votants</label>
-                        <select size="25" class="form-control bg-dark text-light" id="login" name="login">
+                        <select size="25" class="form-control  bg-dark text-light" id="login" name="login" required>
                            
                                 <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                     <option>
@@ -91,21 +93,21 @@ include './listeVotant.php';
 
             <!-- Section 2 -->
             <section class="col-md-3 col-lg-6">
-                <h2 class="font-weight-bold">Listes des votants avec score de pertinence</h2>
+                <h2 class="font-weight-bold">Listes des votants avec leur login</h2>
                 <table class="table table-dark table-hover table-striped table-bordered">
                     <thead class="text-center bg-danger">
                         <tr>
                             <th>
-                                Votants
+                                Login
                             </th>
                             <th>
-                                Score
+                                Nom
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($data as $key => $value) {
+                        foreach ($login as $key => $value) {
                             
                             echo "
                                 <tr>
@@ -113,7 +115,7 @@ include './listeVotant.php';
                                         $key
                                     </th>
                                     <th>
-                                        20
+                                        $value
                                     </th>
                                 </tr>
                             ";
