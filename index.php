@@ -65,18 +65,17 @@ include './listeVotant.php';
                         </select>
                     </div>
  
-           
-               
+        
                     <div class="form-group">
                         <label for="login"  class="font-weight-bold">Votants</label>
                         <select size="25" class="form-control  bg-dark text-light" id="login" name="login" required>
                            
                                 <?php
-                        foreach ($login as $key => $value) {
+                        foreach ($data as $key => $value) {
                             
                             echo "
                                     <option>
-                                        $value
+                                        $key
                                     </option>
                             ";
                         }
@@ -106,12 +105,12 @@ include './listeVotant.php';
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($login as $key => $value) {
+                        foreach ($data as $key => $value) {
                             
                             echo "
                                 <tr>
                                     <th>
-                                        $value
+                                        $key
                                     </th>
                                     <th>
                                         20

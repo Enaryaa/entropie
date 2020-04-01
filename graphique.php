@@ -85,8 +85,26 @@ include './listeVotant.php';
     <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
         <div class="card-header">Score de pertinence de <?php echo $_POST["login"]; ?></div>
             <div class="card-body">
-                <h5 class="card-title">67</h5>
-            </div>
+                <h5 class="card-title"> <?php 
+               /* 
+                foreach ($entropie as $key => $value) {
+                    if ($key == $_POST['login']) {               
+                        foreach ($value as $nb) {
+                           
+                            echo $nb; 
+                            if ($value == $_POST['matiere']) {
+                                echo 'coucou3';
+                                echo $nb;
+                            }
+                        }
+                    }
+                }*/
+                 
+            $stats = $entropie[$_POST['login']];
+            echo  $mat = $stats[$_POST['matiere']];
+                
+            ?></h5>
+        </div>
     </div>
 
     
