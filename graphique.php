@@ -190,7 +190,7 @@ include './probabilite.php';
     var config = {responsive: true}
 
     Plotly.newPlot('myDiv', data, layout, config );
-    Plotly.newPlot('myDiv2', data2, layout, config );
+    Plotly.newPlot('myDiv2', data2, layout2, config );
   
   </script>
 </html>
