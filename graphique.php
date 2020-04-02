@@ -1,6 +1,7 @@
 <?php
 include './listeVotant.php';
-include './entropie.php'
+include './entropie.php';
+include './probabilite.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +24,8 @@ include './entropie.php'
     $entropie = entropie_list();
     $distribution = distributionLogin($data);
     $stats = $login[$_POST['login']];
+    $cas_par_matiere = nbreCasPossible($data);
+    $distributionGlobal = distributionGlobal($data, $cas_par_matiere);
 
     ?>
 
@@ -113,6 +116,8 @@ include './entropie.php'
   
         </div>
         <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+        <br>
+        <div id='myDiv2' style='margin-bottom:50px;'><!-- Plotly chart will be drawn inside this DIV --></div>
         <!-- Footer -->
         <footer class="row">
 
@@ -125,23 +130,44 @@ include './entropie.php'
 <script>
     var login = "<?php echo $_POST['login'] ?>";
     var matiere = "<?php echo $_POST["matiere"]; ?>";
-    var variableRecuperee = <?php  echo json_encode(liste()) ;?>;
     var vote = <?php  echo json_encode( $distribution) ;?>;
-    var key;
+    var globalvote = <?php  echo json_encode( $distributionGlobal) ;?> ;
+
     var temp = [];
     var temp2 = [];
-    for(key in vote[login][matiere])
+    var glob = [];
+    var glob2 = [];
+
+    // console.log(globalvote[matiere]);
+    for(let key in vote[login][matiere])
     {
         temp.push(key) ;
         temp2.push(vote[login][matiere][key]);
     }
+    for(let key in globalvote[matiere])
+    {
+        glob.push(key) ;
+        glob2.push(globalvote[matiere][key]);
+    }
+    
    
     var trace1 = {
         type: 'bar',
         x: temp,
         y: temp2,
         marker: {
-            color: '#C8A2C8',
+            color: '#dc3545',
+            line: {
+                width: 1
+            }
+        }
+    };
+    var trace2 = {
+        type: 'bar',
+        x: glob,
+        y: glob2,
+        marker: {
+            color: '#dc3545',
             line: {
                 width: 1
             }
@@ -149,15 +175,22 @@ include './entropie.php'
     };
 
     var data = [ trace1 ];
+    var data2 = [ trace2 ];
+
 
     var layout = { 
     title: 'Liste des Votants',
+    font: {size: 18}
+    };
+    var layout2 = { 
+    title: 'Votes Globaux',
     font: {size: 18}
     };
 
     var config = {responsive: true}
 
     Plotly.newPlot('myDiv', data, layout, config );
+    Plotly.newPlot('myDiv2', data2, layout, config );
   
   </script>
 </html>
