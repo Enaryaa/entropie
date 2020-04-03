@@ -50,9 +50,11 @@ include './listeVotant.php';
         <a class="nav-link" href=" ">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >Graphique</a>
+        <a class="nav-link" >Graphique</a>
       </li>
-     
+    </ul>
+      <a class="nav-link text-align-right" > Site réalisé par Anne-Sophie Besnard, Hugo Fortuné et Brice Mikembo</a>
+
   </div>
 </nav>
     </header>
@@ -63,7 +65,9 @@ include './listeVotant.php';
     <p class="card-text text-light">Chacun des élèves choissisaient leurs camarades qui leur semblent compétents dans chacune des matières. 
     Un score de pertinence à été déterminé pour chacun des votants en prenant en compte le vote global et le vote part matière.</p>
     <p class="card-text text-light"> Pour nos calculs nous nous sommes basées sur l'entropie relative, dont le lien se trouve ci-dessous afin de comprendre notre raisonnement </p>
-    <a href="https://fr.wikipedia.org/wiki/Divergence_de_Kullback-Leibler" class="btn btn-danger">Entropie relative</a>
+    <a href="https://fr.wikipedia.org/wiki/Divergence_de_Kullback-Leibler" class="btn btn-danger">Entropie relative</a> 
+    <br>
+   
   </div>
     
     
@@ -114,9 +118,9 @@ include './listeVotant.php';
         
 
             <!-- Section 2 -->
-            <section class="col-md-3 col-lg-6">
+            <section class="col-md-3 col-lg-6 ">
                 <h2 class="font-weight-bold">Listes des votants avec leur login</h2>
-                <table class="table table-dark table-hover table-striped table-bordered">
+                <table class="table  table-dark table-hover table-striped table-bordered">
                     <thead class="text-center bg-danger">
                         <tr>
                             <th>
