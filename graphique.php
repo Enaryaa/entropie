@@ -23,10 +23,14 @@ include './probabilite.php';
     $login = login_list();
     $entropie = entropie_list();
     $distribution = distributionLogin($data);
-    $stats = $login[$_POST['login']];
+    $name = $login[$_POST['login']];
     $cas_par_matiere = nbreCasPossible($data);
     $distributionGlobal = distributionGlobal($data, $cas_par_matiere);
 
+    $stats = $entropie[$_POST['login']];
+    $mat = $stats[$_POST['matiere']];   
+
+   
     ?>
 
 </head>
@@ -88,27 +92,27 @@ include './probabilite.php';
             </section>
 
     <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
-        <div class="card-header">Score de pertinence de <?php echo $stats; ?><br> Matière : <?php echo $_POST["matiere"]; ?></div>
+        <div class="card-header font-weight-bold">Score de pertinence de <?php echo $name; ?><br> Matière : <?php echo $_POST["matiere"]; ?></div>
             <div class="card-body">
                 <h5 class="card-title"> <?php 
-               /* 
-                foreach ($entropie as $key => $value) {
-                    if ($key == $_POST['login']) {               
-                        foreach ($value as $nb) {
-                           
-                            echo $nb; 
-                            if ($value == $_POST['matiere']) {
-                                echo 'coucou3';
-                                echo $nb;
-                            }
-                        }
-                    }
-                }*/
-                 
-            $stats = $entropie[$_POST['login']];
-            echo  $mat = $stats[$_POST['matiere']];
-                
-            ?></h5>
+            echo  $mat;  
+            ?></h5> <br>
+            <h5> Sa pertinence est 
+            <?php  
+            if ($mat > 0 && $mat <= 1) {
+                echo"faible";
+            }
+            else if ($mat > 1 && $mat <= 2 ) {
+                echo"moyenne";
+            }
+            else if ($mat > 2 && $mat <= 5 ) {
+                echo"élevé";
+            }
+            else if ($mat > 5 ) {
+                echo"très elevé";
+            }
+            ?>
+    </h5>
         </div>
     </div>
 

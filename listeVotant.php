@@ -72,6 +72,7 @@ function entropie_list(){
 
 }
 
+
 // include './testTableau.php';
 
 // $data = liste();
