@@ -50,7 +50,7 @@ include './probabilite.php';
         <a class="nav-link" href="./index.php ">Accueil </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href=" ">Graphique <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Graphique <span class="sr-only">(current)</span></a>
       </li>
      
   </div>
