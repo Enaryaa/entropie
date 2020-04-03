@@ -21,15 +21,6 @@ function distributionLogin($data){
         }
     }
 
-    $fichier = fopen('./json/personnelle.json', 'r+');
-
-    if(!fgets($fichier)){
-        fseek($fichier, 0);
-        fputs($fichier, json_encode($distribution));
-    }
-
-    fclose($fichier);
-
     //  retourne la distribution uniforme de chaque votant $login
     return $distribution;
     
@@ -68,15 +59,6 @@ function distributionGlobal($data, $cas_par_matiere){
             $distribution[$matiere][$vote] = ($distribution[$matiere][$vote] / $cas_par_matiere[$matiere]);
         }
     }
-
-    $fichier = fopen('./json/global.json', 'r+');
-
-    if(!fgets($fichier)){
-        fseek($fichier, 0);
-        fputs($fichier, json_encode($distribution));
-    }
-
-    fclose($fichier);
 
     //  retourne la distribution global dans chaque matière
     return $distribution;
