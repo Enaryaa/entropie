@@ -32,8 +32,8 @@ function liste(){
     curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
 
     // Set the url
-    curl_setopt($ch, CURLOPT_URL,$url);
-    curl_setopt($ch2, CURLOPT_URL,$url);
+    curl_setopt($ch, CURLOPT_URL,$json);
+    curl_setopt($ch2, CURLOPT_URL,$json2);
     // Execute
     $result=curl_exec($ch);
     $result2=curl_exec($ch2);
