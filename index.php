@@ -62,7 +62,7 @@ include './listeVotant.php';
     <h4 class="card-title">Ce site à pour but de montrer la pertinence des votes de chacun des élèves dans une matière et globalement</h4>
     <p class="card-text text-light">Chacun des élèves choissisaient leurs camarades qui leur semblent compétents dans chacune des matières. 
     Un score de pertinence à été déterminé pour chacun des votants en prenant en compte le vote global et le vote part matière.</p>
-    <p class="card-text text-light"> Pour nos calculs nous nous sommes basées sur l'entropie relative, dont le lien se trouve ci-dessous afin de comprendre notre raisonement </p>
+    <p class="card-text text-light"> Pour nos calculs nous nous sommes basées sur l'entropie relative, dont le lien se trouve ci-dessous afin de comprendre notre raisonnement </p>
     <a href="https://fr.wikipedia.org/wiki/Divergence_de_Kullback-Leibler" class="btn btn-danger">Entropie relative</a>
   </div>
     
