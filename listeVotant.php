@@ -21,34 +21,14 @@
 
 function liste(){
     
-    $json = 'http://www.iut-fbleau.fr/projet/maths/?f=logins.json';
-    $json2= 'http://www.iut-fbleau.fr/projet/maths/?f=pagerank.json';
+    $json = './json/login.json';
+    $json2= './json/vote.json';
 
-    //  Initiate curl
-    $ch = curl_init($json);
-    $ch2 = curl_init($json2);
-    // Will return the response, if false it print the response
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-
-    // Set the url
-    curl_setopt($ch, CURLOPT_URL,$json);
-    curl_setopt($ch2, CURLOPT_URL,$json2);
-    // Execute
-    $result=curl_exec($ch);
-    $result2=curl_exec($ch2);
-    // Closing
-    curl_close($ch);
-    curl_close($ch2);
-    // Will dump a beauty json :3
-    $data= (json_decode($result, true));
-    $vote= (json_decode($result2, true));
-
-/*    $jsondata = file_get_contents($json);
+    $jsondata = file_get_contents($json);
     $jsondata2= file_get_contents($json2);
 
     $data = json_decode($jsondata,true);
-    $vote = json_decode($jsondata2, true);*/
+    $vote = json_decode($jsondata2, true);
 
     asort($data);
 
