@@ -92,7 +92,7 @@ include './listeVotant.php';
         
                     <div class="form-group">
                         <label for="login"  class="font-weight-bold">Votants</label>
-                        <select size="23" class="form-control  bg-dark text-light" id="login" name="login" required>
+                        <select size="22" class="form-control  bg-dark text-light" id="login" name="login" required>
                            
                                 <?php
                         foreach ($login as $key => $value) {
