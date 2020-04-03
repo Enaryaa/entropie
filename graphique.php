@@ -38,12 +38,28 @@ include './probabilite.php';
 <body class="bg-secondary">
     <!-- Header -->
     <header class="bg-danger">
-        <div class="col-lg-12">
-            <p class="text-center text-uppercase font-weight-bold">
-                Affichage résultat
-            </p>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <a class="navbar-brand text-uppercase font-weight-bold" href="#">Entropie</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="./index.php ">Accueil </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href=" ">Graphique <span class="sr-only">(current)</span></a>
+      </li>
+     
+  </div>
+</nav>
     </header>
+    <br>
+
+  
+
 
     <div class="container">
 
@@ -91,7 +107,7 @@ include './probabilite.php';
                 </form>
             </section>
 
-    <div class="card text-center border-light  mb-3" style="max-width: 13rem;">
+    <div class="card text-center  mb-3" style="max-width: 13rem;">
         <div class="card-header font-weight-bold">Score de pertinence de <?php echo $name; ?><br> Matière : <?php echo $_POST["matiere"]; ?></div>
             <div class="card-body">
                 <h5 class="card-title"> <?php 
